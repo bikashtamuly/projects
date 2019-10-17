@@ -1,0 +1,37 @@
+import { Features } from '../models/features';
+
+export var FEATURES: Features[] = 
+[
+    {
+        "id": 101,
+        "bookId": 101,
+        "like": 1,        
+        "rate": 3,        
+        "reccomands": 1,               
+        "userId": 102
+    },
+    {
+        "id": 102,
+        "bookId": 101,
+        "like": 2,        
+        "rate": 4,        
+        "reccomands": 1,               
+        "userId": 103
+    },
+    {
+        "id": 101,
+        "bookId": 102,
+        "like": 1,        
+        "rate": 4,        
+        "reccomands": 1,               
+        "userId": 102
+    },
+    {
+        "id": 101,
+        "bookId": 102,
+        "like": 1,        
+        "rate": 4,        
+        "reccomands": 1,               
+        "userId": 102
+    }
+]

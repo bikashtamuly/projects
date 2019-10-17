@@ -1,0 +1,34 @@
+
+  <h4>Contact Us</h4>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" formControlName="fname" class="form-control" [ngClass]="{ 'is-invalid': submitted && formCtrl.fname.errors }" />
+        <div *ngIf="submitted && formCtrl.fname.errors" class="invalid-feedback">
+            <div *ngIf="formCtrl.fname.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" formControlName="lname" class="form-control" [ngClass]="{ 'is-invalid': submitted && formCtrl.lname.errors }" />
+        <div *ngIf="submitted && formCtrl.lname.errors" class="invalid-feedback">
+            <div *ngIf="formCtrl.lname.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && formCtrl.email.errors }" />
+      <div *ngIf="submitted && formCtrl.email.errors" class="invalid-feedback">
+          <div *ngIf="formCtrl.email.errors.required">Enter a valid Email address</div>
+      </div>
+    </div> 
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="textarea" formControlName="comment" class="form-control" [ngClass]="{ 'is-invalid': submitted && formCtrl.comment.errors }" />
+    </div>  
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Submit</button>
+     </div>
+  </form>
+

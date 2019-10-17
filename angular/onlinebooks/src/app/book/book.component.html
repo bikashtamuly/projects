@@ -1,0 +1,27 @@
+<div id="books">
+    <h4>Filter by Category</h4>
+    <select [(ngModel)]="categoryFilterOption" name="first">
+        <option *ngFor="let o of categoryOptions" value="{{o.value}}">
+          {{o.name}}
+        </option>
+      </select>
+  <div class="row" *ngIf="books">
+    <div class="card-container col-4 mr-auto" *ngFor="let item of books| filter: categoryFilterOption">
+      <div class="card">                
+          <p class="text-primary book-title text-ellipsis">
+            {{item.title}}
+          </p>
+          <div class="description">
+              <div>{{item.description | slice:0:120}}</div>   
+              <div class="news-statistic">                                     
+              </div>
+          </div>
+          <div class="img-book">
+            <img src={{item.imgUrl}} alt="{{item.title | slice:0:10}}"/>                    
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="clear:both;height:2px;width:100%;"></div>
+

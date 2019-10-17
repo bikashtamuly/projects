@@ -1,0 +1,62 @@
+<h3>Book Search (Local)</h3>
+<div class=search-book>  
+  <div class="filter-section">
+      <select [(ngModel)]="filterValue" (change)="filterOptionChanged($event)" name="first">
+          <option *ngFor="let o of options" value="{{o.value}}">
+            {{o.name}}
+          </option>
+        </select>
+  </div>
+  <div class="search-section">
+    <!-- Search form -->
+    <div class="md-form active-cyan active-cyan-2 mb-3"> 
+      <input (keyup)="searchTerm$.next($event.target.value)">
+    </div>
+  </div>
+</div>
+
+<div class="search-results">
+  <div id="books">
+    <div>        
+        <ng-container *ngIf="results | filter:categoryFilterOption as data">  
+          <div class="row" *ngIf="dataLength(data); else error">        
+            <div class="card-container col-4 mr-auto" *ngFor="let item of data">
+              <div class="card">                
+                  <p class="text-primary book-title text-ellipsis">
+                    {{item.title}}
+                  </p>
+                  <span class="isbn">ISBN: {{item.isbn}}</span>
+                  <div class="description">
+                      <div>{{item.description | slice:0:150}}</div>
+                  </div>
+                  <div class="img-book">
+                    <img class="" src={{item.imgUrl}} alt="{{item.title | slice:0:10}}"/>                    
+                  </div>
+                  <div class="author">Author: {{item.author}}</div>
+                  <div *ngIf="item.issued">
+                    Not Available
+                  </div>                  
+                  <div *ngIf="!item.issued" class="availabe">
+                    <button (click)="openModal(item.title)">Issue Book</button>                                      
+                                       
+                  </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #error>
+              <div class="col-12">
+                <div class="alert alert-danger">
+                  No results for your matching filter criteria!
+                </div>
+              </div>
+          </ng-template>
+        </ng-container>
+    </div>
+  </div>
+  <div style="clear:both;height:2px;width:100%;"></div>
+  <jw-modal id="custom-modal">
+      <h3>Book issued</h3>
+      <p>Book Name: {{bodyText}}</p>
+      <button (click)="closeModal('custom-modal');">Close</button>
+  </jw-modal>
+</div>

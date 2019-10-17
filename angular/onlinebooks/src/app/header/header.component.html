@@ -1,0 +1,33 @@
+<nav class="navbar navbar-dark bg-info mb-5">
+  <a class="navbar-brand" href="/">Online Books</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/dashboard">Home</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/search">BookStore Search</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/searchonline">Online Search</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/about">About</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/contactus">Contact Us</a>      
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <div class="input-group mb-3">        
+          <a *ngIf="!authUser" class="nav-item nav-link" routerLinkActive="active" routerLink="/login">LogIn</a>
+          <a *ngIf="!authUser" class="nav-item nav-link" routerLinkActive="active" routerLink="/registration">Sign Up</a>
+          <a *ngIf="adminUser" class="nav-item nav-link" routerLinkActive="active" routerLink="/admin">Admin Section</a>
+          <span *ngIf="authUser" class="auth-section">
+            <span class="welcome-user">Welcome {{userName}} </span>
+            <a class="nav-item nav-link logout" (click)="logout()">Logout</a>
+          </span>        
+        <!--div class="input-group-prepend">
+            <select [(ngModel)]="filterValue" name="first">
+                <option *ngFor="let o of options">
+                  {{o.name}}
+                </option>
+              </select>
+        </div>
+        <input (keyup)="onKey($event)" -->
+      </div>
+    </div>
+  </div>
+</nav>
