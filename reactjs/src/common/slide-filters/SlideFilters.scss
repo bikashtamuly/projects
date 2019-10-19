@@ -1,0 +1,51 @@
+.slide-filters-container {
+  width          : 250px;
+  height         : 100%;
+  background     : #0b0d18f2;
+  padding        : 15px;
+  display        : flex;
+  flex-direction : column;
+}
+
+h3.title {
+  margin      : 0 0 18px;
+  color       : #ffffff;
+  font-weight : 500;
+  button.mat-icon-button {
+    position      : absolute;
+    right         : 5px;
+    top           : 2px;
+    padding       : 0;
+    min-width     : 0;
+    width         : 40px;
+    height        : 40px;
+    flex-shrink   : 0;
+    line-height   : 40px;
+    border-radius : 50%;
+  }
+}
+.close-icon {
+  fill: #fffffff2 !important;
+}
+.select-country {
+  label {
+    color: #ffffff !important;
+    font: 22px/6px fantasy;
+  }
+  input {
+    color: #ffffff !important;
+    text-transform: capitalize;
+    font: 26px/6px fantasy;
+  }  
+}
+.divider {
+  height : 10px;
+}
+
+.videosCountPerPage {
+  width     : 100%;
+  font-size : 11px;
+  .rc-slider {
+    padding : 24px 0;
+  }
+}
