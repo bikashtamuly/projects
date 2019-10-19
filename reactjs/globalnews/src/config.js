@@ -1,6 +1,6 @@
 export const appConfig = {
   getNewsEndPoint : (url: string) => `https://newsapi.org/v2/top-headlines/${url}`,  
-  newsApiKey      : '2d8dc6ea4b61424daf860a90f358424f',  
+  newsApiKey      : '2d8dc6ea4b61424daf860a9xxxxxxxxx',  
   defaultCountry      : 'IN',
   defaultCountryName  : 'India',
   countryList        : [
